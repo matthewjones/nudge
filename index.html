@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en-US" data-theme="dark">
+ <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="A simple budgeting tool to help teens track their money and build smart spending habits.">
+  <link id="theme-style" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.classless.min.css">
+  <link rel="stylesheet" href="https://matthewjones.github.io/nudge/assets/css/nudge.css">
+  <style>
+  pre code,
+  code {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  /* always center images */
+  img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  figcaption {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+
+  /* super basic navbar */
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    overflow: visible;
+    font-size: 1.40rem;
+  }
+
+  nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 0.5rem;
+  }
+
+</style>
+  <link rel="stylesheet" href="https://matthewjones.github.io/nudge/assets/css/syntax-light.css" media="(prefers-color-scheme: light)">
+  <link rel="stylesheet" href="https://matthewjones.github.io/nudge/assets/css/syntax-dark.css" media="(prefers-color-scheme: dark)">
+  <title>Nudge</title>
+  <!-- <link id="theme-style" rel="stylesheet" href="https://matthewjones.github.io/nudge/assets/css/local_classless.css"> -->
+ </head>
+ <body>
+  <header>
+   <nav>
+    <ul>
+     <li><strong>Nudge</strong></li>
+    </ul>
+    <ul>
+     <li><a href="https://matthewjones.github.io/nudge/">Budget</a></li>
+     <li><a href="https://matthewjones.github.io/nudge/view">View</a></li>
+    </ul>
+   </nav>
+  </header>
+  <main>
+   <div id="nudge-index">
+    <!-- Month Navigation -->
+    <div class="month-nav">
+     <button id="month-prev" title="Previous month">◀</button>
+     <span id="month-label" class="month-label">—</span>
+     <button id="month-next" title="Next month">▶</button>
+    </div>
+    <!-- Summary Tiles -->
+    <div class="summary-grid">
+     <div class="summary-tile income">
+      <div class="label">Income</div>
+      <div class="value" id="summary-income">$0.00</div>
+     </div>
+     <div class="summary-tile expense">
+      <div class="label">Spent</div>
+      <div class="value" id="summary-expense">$0.00</div>
+     </div>
+     <div class="summary-tile balance">
+      <div class="label">Balance</div>
+      <div class="value" id="summary-balance">$0.00</div>
+     </div>
+    </div>
+    <!-- Income Card -->
+    <div class="card">
+     <h3>💵 Income</h3>
+     <table class="budget-table">
+      <thead>
+       <tr>
+        <th>Source</th>
+        <th>Amount</th>
+        <th></th>
+       </tr>
+      </thead>
+      <tbody id="income-body"></tbody>
+      <tfoot>
+       <tr>
+        <td><input type="text" id="new-income-source" placeholder="e.g. Allowance, Part-time job"></td>
+        <td><input type="number" id="new-income-amount" placeholder="0.00" min="0" step="0.01"></td>
+        <td>
+         <button class="btn-add" id="btn-add-income">+ Add</button>
+        </td>
+       </tr>
+      </tfoot>
+     </table>
+    </div>
+    <!-- Expense Card -->
+    <div class="card">
+     <h3>💸 Expenses</h3>
+     <table class="budget-table">
+      <thead>
+       <tr>
+        <th>Category</th>
+        <th>Description</th>
+        <th>Amount</th>
+        <th>Date</th>
+        <th></th>
+       </tr>
+      </thead>
+      <tbody id="expense-body"></tbody>
+      <tfoot>
+       <tr>
+        <td><select id="new-expense-cat"> <option value="food">🍔 Food</option> <option value="fun">🎮 Fun</option> <option value="clothes">👕 Clothes</option> <option value="tech">📱 Tech</option> <option value="transport">🚌 Transport</option> <option value="school">📚 School</option> <option value="savings">💰 Savings</option> <option value="other">🎁 Other</option> </select></td>
+        <td><input type="text" id="new-expense-label" placeholder="e.g. Lunch, Spotify"></td>
+        <td><input type="number" id="new-expense-amount" placeholder="0.00" min="0" step="0.01"></td>
+        <td><input type="date" id="new-expense-date"></td>
+        <td>
+         <button class="btn-add" id="btn-add-expense">+ Add</button>
+        </td>
+       </tr>
+      </tfoot>
+     </table>
+    </div>
+    <!-- Category Breakdown -->
+    <div class="card">
+     <h3>📊 Where's Your Money Going?</h3>
+     <div id="category-bars" class="cat-bars"></div>
+    </div>
+    <!-- Toolbar -->
+    <div class="toolbar">
+     <button class="btn-secondary" id="btn-export">📥 Export Backup</button>
+     <button class="btn-secondary" id="btn-import">📤 Import Backup</button>
+     <button class="btn-del" id="btn-clear">🗑️ Clear Month</button>
+     <input type="file" id="file-import" accept=".json" style="display:none">
+    </div>
+   </div>
+  </main>
+  <footer>
+   <p>© 2026-26 | All Rights Reserved | Matthew Jones</p>
+  </footer>
+  <script src="https://matthewjones.github.io/nudge/assets/js/nudge.js"></script>
+ </body>
+</html>
