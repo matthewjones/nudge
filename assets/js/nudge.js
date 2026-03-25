@@ -7,7 +7,8 @@
   // ---- constants ----
   const STORAGE_KEY = 'nudge_data';
   const CATEGORIES = [
-    { key: 'food',      emoji: '🍔', label: 'Food' },
+    { key: 'groceries', emoji: '🛒', label: 'Groceries' },
+    { key: 'eatingout', emoji: '🍕', label: 'Eating Out' },
     { key: 'fun',       emoji: '🎮', label: 'Fun' },
     { key: 'clothes',   emoji: '👕', label: 'Clothes' },
     { key: 'tech',      emoji: '📱', label: 'Tech' },

@@ -205,7 +205,8 @@ body  { font-family: 'Inter', 'Segoe UI', system-ui, sans-serif; }
 }
 
 /* category colours */
-.cat-food      { background: #f97068; }
+.cat-groceries { background: #22c55e; }
+.cat-eatingout { background: #f97068; }
 .cat-fun       { background: #a78bfa; }
 .cat-clothes   { background: #f5a623; }
 .cat-tech      { background: #3b82f6; }
