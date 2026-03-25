@@ -12,6 +12,7 @@
     { key: 'fun',       emoji: '🎮', label: 'Fun' },
     { key: 'clothes',   emoji: '👕', label: 'Clothes' },
     { key: 'tech',      emoji: '📱', label: 'Tech' },
+    { key: 'subs',      emoji: '🔄', label: 'Subscriptions' },
     { key: 'transport', emoji: '🚌', label: 'Transport' },
     { key: 'school',    emoji: '📚', label: 'School' },
     { key: 'savings',   emoji: '💰', label: 'Savings' },
